@@ -1,4 +1,4 @@
-package model.user;
+package model.event;
 
 import java.util.Date;
 

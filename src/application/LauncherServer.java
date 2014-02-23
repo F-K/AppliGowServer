@@ -4,7 +4,7 @@ import hibernate.HibernateUtil;
 
 import java.io.IOException;
 
-import model.user.DAO;
+import model.DAO;
 import model.user.UserDAO;
 
 import org.hibernate.Session;
