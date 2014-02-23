@@ -2,11 +2,12 @@ package service;
 
 import java.io.IOException;
 
-import protocole.IProtocoleServer;
+import protocol.IProtocolServer;
 
 public interface IService {
 	
-	public void setProtocole(IProtocoleServer protocole);
+	public IProtocolServer getProtocol();
+	public void setProtocol(IProtocolServer protocol);
 	public void run() throws IOException, ClassNotFoundException;
 
 }

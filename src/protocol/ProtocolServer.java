@@ -1,14 +1,15 @@
-package protocole;
+package protocol;
 
 import java.io.IOException;
 
 import library.ITransport;
+import model.user.User;
 
-public class ProtocoleServer implements IProtocoleServer {
+public class ProtocolServer implements IProtocolServer {
 
 	private ITransport transport;
 	
-	public ProtocoleServer(ITransport transport) {
+	public ProtocolServer(ITransport transport) {
 		this.transport = transport;
 	}
 
@@ -28,8 +29,13 @@ public class ProtocoleServer implements IProtocoleServer {
 	}
 
 	@Override
-	public void sendConnectionStatus(boolean status) throws IOException {
-		transport.send(status);
+	public void sendUser(User user) throws IOException {
+		transport.send(user);
 	}
 
+	@Override
+	public void sendUserExist(boolean exist) throws IOException {
+		transport.send(exist);
+	}
+	
 }

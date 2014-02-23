@@ -2,23 +2,31 @@ package service.user;
 
 import java.io.IOException;
 
-import protocole.IProtocoleServer;
-import service.IService;
+import model.user.User;
+import model.user.UserDAO;
+import service.Service;
 
-public class SignInService implements IService {
-	
-	private IProtocoleServer protocole;
-
-	public void setProtocole(IProtocoleServer protocole) {
-		this.protocole = protocole;
-	}
+public class SignInService extends Service {
 
 	@Override
 	public void run() throws IOException, ClassNotFoundException {
-		String login = protocole.getLogin();
-		String password = protocole.getPassword();
-		protocole.sendConnectionStatus(true);
-		System.out.println(login + " + " + password); //Affiche temporaire
+		// Retrieve the login and password from the client
+		String login = getProtocol().getLogin();
+		String password = getProtocol().getPassword();
+		
+		User user = UserDAO.getUser(login, password);
+		
+		// User doesn't exist
+		if(user == null) {
+			getProtocol().sendUserExist(false);
+			System.out.println("User : doesn't exist");
+			return;
+		}
+		
+		// User exists
+		getProtocol().sendUserExist(true);
+		getProtocol().sendUser(user);
+		System.out.println(user.getLogin() + " + " + user.getPassword());
 	}
 
 }

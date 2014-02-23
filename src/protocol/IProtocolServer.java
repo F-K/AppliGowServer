@@ -1,12 +1,15 @@
-package protocole;
+package protocol;
 
 import java.io.IOException;
 
-public interface IProtocoleServer {
+import model.user.User;
+
+public interface IProtocolServer {
 	
 	public String getService() throws IOException, ClassNotFoundException;
 	public String getLogin() throws IOException, ClassNotFoundException;
 	public String getPassword() throws IOException, ClassNotFoundException;
-	public void sendConnectionStatus(boolean status) throws IOException;
+	public void sendUserExist(boolean exist) throws IOException;
+	public void sendUser(User user) throws IOException;
 
 }

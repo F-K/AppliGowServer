@@ -2,6 +2,22 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="libs/Transport.jar"/>
+	<classpathentry kind="lib" path="libs/outils/Transport.jar"/>
+	<classpathentry kind="lib" path="libs/drivers/mysql-connector-java-3.1.14-bin.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/slf4j-simple-1.5.6.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/slf4j-api-1.5.6.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/javassist-3.4.GA.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/hibernate-validator.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/hibernate-core.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/hibernate-commons-annotations.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/hibernate3.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/javassist-3.9.0.GA.jar"/>
+	<classpathentry kind="lib" path="libs/hibernate/antlr-2.7.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

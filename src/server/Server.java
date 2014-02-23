@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import protocole.IProtocoleServer;
-import protocole.ProtocoleServer;
-
-import service.IService;
-import service.ServiceManager;
 import library.ITransport;
 import library.Transport;
+import protocol.IProtocolServer;
+import protocol.ProtocolServer;
+import service.IService;
+import service.ServiceFactory;
 
 public class Server {
 
@@ -24,16 +23,25 @@ public class Server {
 		System.out.println("Server launched");
 		Socket socket;
 		ITransport transport;
-		IProtocoleServer protocole;
+		IProtocolServer protocol;
 		while(true) {
+			// Listens client's socket
 			socket = this.serverSocket.accept();
+			
+			// Client's socket is accepted
 			transport = new Transport(socket);
-			protocole = new ProtocoleServer(transport);
-			String service = protocole.getService();
-			System.out.println("SERVICE : " + service); //Affichage temporaire du nom du service
-			IService serviceProcess = ServiceManager.getService(service);
-			serviceProcess.setProtocole(protocole);
-			serviceProcess.run();
+			protocol = new ProtocolServer(transport);
+			
+			// Retrieve the service's name
+			String serviceName = protocol.getService();
+			System.out.println("SERVICE CALLED : " + serviceName);
+			
+			// Create the service
+			IService service = ServiceFactory.getService(serviceName);
+			service.setProtocol(protocol);
+			
+			// Runs the service
+			service.run();
 		}
 	}
 

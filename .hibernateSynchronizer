@@ -1,0 +1,4 @@
+databaseUrl=jdbc:mysql://localhost/appligow
+driver=com.mysql.jdbc.Driver
+username=root
+ConfigurationFile=\AppliGowServer\src\hibernate.cfg.xml

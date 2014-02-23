@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory >
+        
+<!-- 		display SQL log -->
+<!-- 		<property name="show_sql">true</property> -->
+<!-- 		<property name="hibernate.format_sql">true</property> -->
+<!-- 		<property name="use_sql_comments">true</property> -->
+
+		<!-- local connection properties -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost/appligow</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password"></property>
+		<!-- property name="hibernate.connection.pool_size"></property -->
+
+		<!-- dialect for MySQL -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+		<!-- tables behaviors -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<!-- class and entity mapping -->
+		<mapping class="model.user.User" />
+
+    </session-factory>
+</hibernate-configuration>
