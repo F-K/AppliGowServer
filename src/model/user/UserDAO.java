@@ -44,5 +44,11 @@ public class UserDAO extends DAO {
 			return null;
 		return list.get(0);
 	}
+	
+	public static void updateUser(User user) {
+		transaction = session.beginTransaction();
+		session.update(user);
+		transaction.commit();
+	}
 
 }

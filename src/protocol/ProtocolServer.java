@@ -37,5 +37,10 @@ public class ProtocolServer implements IProtocolServer {
 	public void sendUserExist(boolean exist) throws IOException {
 		transport.send(exist);
 	}
+
+	@Override
+	public User getUser() throws ClassNotFoundException, IOException {
+		return (User) transport.receive();
+	}
 	
 }

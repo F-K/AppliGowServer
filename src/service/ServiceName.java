@@ -5,6 +5,6 @@ package service;
  */
 public enum ServiceName {
 	
-	SIGN_IN, SIGN_UP;
+	SIGN_IN, SIGN_UP, EDIT_USER;
 	
 }

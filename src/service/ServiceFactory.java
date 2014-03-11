@@ -1,5 +1,6 @@
 package service;
 
+import service.user.EditService;
 import service.user.SignInService;
 import service.user.SignUpService;
 
@@ -16,6 +17,8 @@ public class ServiceFactory {
 				return new SignInService();
 			case SIGN_UP:
 				return new SignUpService();
+			case EDIT_USER:
+				return new EditService();
 			default :
 				return null;
 		}
