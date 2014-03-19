@@ -26,6 +26,8 @@
 
 		<!-- class and entity mapping -->
 		<mapping class="model.user.User" />
+		<mapping class="model.event.Event" />
+		<mapping class="model.event.Participant" />
 
     </session-factory>
 </hibernate-configuration>

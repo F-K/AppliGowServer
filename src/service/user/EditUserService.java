@@ -6,7 +6,7 @@ import model.user.User;
 import model.user.UserDAO;
 import service.Service;
 
-public class EditService extends Service {
+public class EditUserService extends Service {
 
 	@Override
 	public void run() throws IOException, ClassNotFoundException {

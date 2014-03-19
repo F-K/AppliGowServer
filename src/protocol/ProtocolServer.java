@@ -3,6 +3,7 @@ package protocol;
 import java.io.IOException;
 
 import library.ITransport;
+import model.event.Event;
 import model.user.User;
 
 public class ProtocolServer implements IProtocolServer {
@@ -41,6 +42,11 @@ public class ProtocolServer implements IProtocolServer {
 	@Override
 	public User getUser() throws ClassNotFoundException, IOException {
 		return (User) transport.receive();
+	}
+	
+	@Override
+	public Event getEvent() throws ClassNotFoundException, IOException {
+		return (Event) transport.receive();
 	}
 	
 }

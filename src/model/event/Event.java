@@ -1,5 +1,6 @@
 package model.event;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,20 +8,36 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import model.user.User;
 
 @Entity
 @Table(name="Event")
-public class Event {
+public class Event implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id", nullable=false)
 	private Integer id;
 	
+	@OneToOne
+	@JoinColumn(name="idUser", referencedColumnName="id", nullable=false)
+	private User user;
+	
 	@Column(name="title", length=30, nullable=false)
 	private String title;
 	
+	@Column(name="address", length=150, nullable=false)
+	private String address;
+
 	@Column(name="category", length=30, nullable=false)
 	private String category;
 	
@@ -42,6 +59,14 @@ public class Event {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	
+	public User getUser() {
+		return user;
+	}
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public String getTitle() {
 		return title;
@@ -49,6 +74,14 @@ public class Event {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getCategory() {
