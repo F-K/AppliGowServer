@@ -2,6 +2,7 @@ package service;
 
 import service.event.CreateEventService;
 import service.event.DeleteEventService;
+import service.event.EditEventService;
 import service.user.EditUserService;
 import service.user.SignInService;
 import service.user.SignUpService;
@@ -23,6 +24,8 @@ public class ServiceFactory {
 				return new EditUserService();
 			case CREATE_EVENT:
 				return new CreateEventService();
+			case EDIT_EVENT:
+				return new EditEventService();
 			case DELETE_EVENT:
 				return new DeleteEventService();
 			default :
