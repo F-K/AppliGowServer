@@ -12,8 +12,9 @@ public class CreateEventService extends Service {
 	@Override
 	public void run() throws IOException, ClassNotFoundException {
 		Event event = getProtocol().getEvent();
-		EventDAO.createEvent(event);
-		System.out.println(event.getTitle() + " is created successfully");
+		Event eventDAO = EventDAO.createEvent(event);
+		getProtocol().sendEvent(eventDAO);
+		System.out.println(eventDAO.getTitle() + " is created successfully");
 	}
 
 }

@@ -42,6 +42,22 @@ public class EventDAO extends DAO {
 		session.delete(event);
 		transaction.commit();
 	}
+
+	public static List<Event> getEvents(int idUser) {
+		transaction = session.beginTransaction();
+		String sql = "from Event where idUser = '" + idUser + "'";
+		Query q = session.createQuery(sql);
+		List<Event> list = q.list();
+		return list;
+	}
+
+	public static List<Event> getAllEvents() {
+		transaction = session.beginTransaction();
+		String sql = "from Event";
+		Query q = session.createQuery(sql);
+		List<Event> list = q.list();
+		return list;
+	}
 	
 	public static Participant addParticipant(Participant participant) {
 		transaction = session.beginTransaction();

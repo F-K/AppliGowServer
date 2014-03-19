@@ -1,7 +1,10 @@
 package service.user;
 
 import java.io.IOException;
+import java.util.List;
 
+import model.event.Event;
+import model.event.EventDAO;
 import model.user.User;
 import model.user.UserDAO;
 import service.Service;
@@ -26,6 +29,13 @@ public class SignInService extends Service {
 		// User exists
 		getProtocol().sendUserExist(true);
 		getProtocol().sendUser(user);
+		
+		// Send events
+		List<Event> allEvents = EventDAO.getAllEvents();
+		List<Event> events = EventDAO.getEvents(user.getId());
+		getProtocol().sendEvents(allEvents);
+		getProtocol().sendEvents(events);
+		
 		System.out.println(user.getLogin() + " + " + user.getPassword());
 	}
 

@@ -38,6 +38,12 @@ public class Event implements Serializable {
 	@Column(name="address", length=150, nullable=false)
 	private String address;
 
+	@Column(name="latitude", nullable=false)
+	private double latitude;
+	
+	@Column(name="longitude", nullable=false)
+	private double longitude;
+
 	@Column(name="category", length=30, nullable=false)
 	private String category;
 	
@@ -84,6 +90,22 @@ public class Event implements Serializable {
 		this.address = address;
 	}
 
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
+
 	public String getCategory() {
 		return category;
 	}
@@ -114,6 +136,11 @@ public class Event implements Serializable {
 
 	public void setDateEnd(Date dateEnd) {
 		this.dateEnd = dateEnd;
+	}
+	
+	@Override
+	public String toString() {
+		return title;
 	}
 
 }

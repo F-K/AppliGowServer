@@ -28,6 +28,8 @@ public class LauncherServer {
 			Transaction transaction = session.beginTransaction();
 			DAO userDAO = new UserDAO(session, transaction);
 			DAO eventDAO = new EventDAO(session, transaction);
+			
+			//EventDAO.getAllEvents();
 
 //			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 //			sdf.setLenient(false);

@@ -8,7 +8,9 @@ public enum ServiceName {
 	SIGN_IN,
 	SIGN_UP,
 	EDIT_USER,
+	DELETE_USER,
 	CREATE_EVENT,
-	EDIT_EVENT;
+	EDIT_EVENT,
+	DELETE_EVENT;
 	
 }
