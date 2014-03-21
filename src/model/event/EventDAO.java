@@ -59,11 +59,10 @@ public class EventDAO extends DAO {
 		return list;
 	}
 	
-	public static Participant addParticipant(Participant participant) {
-		transaction = session.beginTransaction();
-		session.save(participant);
-		transaction.commit();
-		return participant;
+	public static void deleteUserEvents(int idUser) {
+		List<Event> events = getEvents(idUser);
+		for(Event event : events)
+			deleteEvent(event);
 	}
 
 }

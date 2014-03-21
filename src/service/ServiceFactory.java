@@ -3,6 +3,7 @@ package service;
 import service.event.CreateEventService;
 import service.event.DeleteEventService;
 import service.event.EditEventService;
+import service.user.DeleteUserService;
 import service.user.EditUserService;
 import service.user.SignInService;
 import service.user.SignUpService;
@@ -22,6 +23,8 @@ public class ServiceFactory {
 				return new SignUpService();
 			case EDIT_USER:
 				return new EditUserService();
+			case DELETE_USER:
+				return new DeleteUserService();
 			case CREATE_EVENT:
 				return new CreateEventService();
 			case EDIT_EVENT:

@@ -50,5 +50,11 @@ public class UserDAO extends DAO {
 		session.update(user);
 		transaction.commit();
 	}
+	
+	public static void deleteUser(User user) {
+		transaction = session.beginTransaction();
+		session.delete(user);
+		transaction.commit();
+	}
 
 }
