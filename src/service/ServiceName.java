@@ -10,6 +10,7 @@ public enum ServiceName {
 	EDIT_USER,
 	DELETE_USER,
 	CREATE_EVENT,
+	GET_EVENTS,
 	EDIT_EVENT,
 	DELETE_EVENT;
 	
