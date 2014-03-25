@@ -9,6 +9,13 @@ import model.user.User;
 import model.user.UserDAO;
 import service.Service;
 
+/**
+ * SignInService class extends the Service class, and is used to register the
+ * user.
+ * 
+ * @author Tiago DOS SANTOS, François KIM, Philippe PUONG, Axel SAINTILLAN
+ * 
+ */
 public class SignInService extends Service {
 
 	@Override
@@ -16,26 +23,26 @@ public class SignInService extends Service {
 		// Retrieve the login and password from the client
 		String login = getProtocol().getLogin();
 		String password = getProtocol().getPassword();
-		
+
 		User user = UserDAO.getUser(login, password);
-		
+
 		// User doesn't exist
-		if(user == null) {
+		if (user == null) {
 			getProtocol().sendUserExist(false);
 			System.out.println("User : doesn't exist");
 			return;
 		}
-		
+
 		// User exists
 		getProtocol().sendUserExist(true);
 		getProtocol().sendUser(user);
-		
+
 		// Send events
 		List<Event> allEvents = EventDAO.getAllEvents();
 		List<Event> events = EventDAO.getEvents(user.getId());
 		getProtocol().sendEvents(allEvents);
 		getProtocol().sendEvents(events);
-		
+
 		System.out.println(user.getLogin() + " + " + user.getPassword());
 	}
 

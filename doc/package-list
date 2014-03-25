@@ -1,0 +1,10 @@
+application
+hibernate
+model
+model.event
+model.user
+protocol
+server
+service
+service.event
+service.user

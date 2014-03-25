@@ -13,8 +13,20 @@ import org.hibernate.Transaction;
 
 import server.Server;
 
+/**
+ * Class that must be called to launch the server.
+ * 
+ * @author Tiago DOS SANTOS, François KIM, Philippe PUONG, Axel SAINTILLAN
+ * 
+ */
 public class LauncherServer {
 
+	/**
+	 * The main class that launch the server.
+	 * 
+	 * @param args
+	 *            The arguments
+	 */
 	public static void main(String[] args) {
 		try {
 			// Launch Hibernate
